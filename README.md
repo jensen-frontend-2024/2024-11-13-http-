@@ -21,6 +21,10 @@
 
 - [Bygga en webbserver med Node och Express](#bygga-en-webbserver-med-node-och-express)
 
+  - [Skapa ett node-projekt](#skapa-ett-node-projekt)
+  - [Skapa ett express-server](#skapa-en-express-server)
+  - [Skapa vår första endpoint](#skapa-vår-första-endpoint)
+
 </details>
 
 ## Mål med dagens genomgång
@@ -184,6 +188,8 @@ Så sammanfattningsvis
 
 För att se till att rätt filer hänger med upp på git. Speciellt node_modules ska ignoreras av git så vi behöver skapa en fil som heter `.gitignore`. Den filen öppnar vi upp och skriver in de mappar och filer vi vill att git ignorerar.
 
+[Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
+
 ### Skapa en express-server
 
 Det första vi gör är att importera in express i vår js-fil.
@@ -249,6 +255,8 @@ Så enkelt var det! Självklart är processen att skapa en server krånglare än
 
 Detta är det kraftfulla med npm-paket. De kan underlätta otroligt mycket för oss.
 
+[Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
+
 ### Skapa vår första endpoint
 
 För att skapa en endpoint så behöver vi anropa en method som existerar på vårt server-objekt, i det här fallet `app`. Det finns olika metoder men den vi är intresserad utav nu, är metoden `get()` som då registrerar en endpoint som accepterar get-request.
@@ -274,6 +282,16 @@ Så flera argument här.
 - `response`: själva response-objektet som vi kan bygga vidare på för att sen returnera till klienten. Alltså, varje endpoint måste skicka tillbaks något response.
 
 Så när ett request hamnar på servern så kommer servern att förska matcha request-url:en mot en av sina egna endpoints. Blir det en matchning, så kommer den endpoint-callbacken att köras.
+
+Första endpointen:
+
+```js
+app.get("/", (request, response) => {
+  return response.send("The request was recieved and here is the response.");
+});
+```
+
+Endpointen "/" svarar alltid mot startsidan. Den kommer inte att synas i browsern men det finns alltid där bakom kulisserna. Alla endpoints måste starta med ett "/".
 
 Låt oss skapa en ny endpoint som svarar mot ett get-request till endpointen "/test". Den ser ut så här:
 
