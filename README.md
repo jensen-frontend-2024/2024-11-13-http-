@@ -251,4 +251,53 @@ Detta är det kraftfulla med npm-paket. De kan underlätta otroligt mycket för 
 
 ### Skapa vår första endpoint
 
+För att skapa en endpoint så behöver vi anropa en method som existerar på vårt server-objekt, i det här fallet `app`. Det finns olika metoder men den vi är intresserad utav nu, är metoden `get()` som då registrerar en endpoint som accepterar get-request.
+
+Syntax:
+
+```js
+app.get(enpoint, (request, response) => {
+  // kod att köra
+  return someResponse;
+});
+```
+
+Så flera argument här.
+
+- `endpoint`: url-adressen som denna endpoint ska svara emot.
+
+- `callback`: funktionen som körs när ett request matchar mot endpointen.
+
+- `request`: requestet som skickas ifrån klienten kommer att bli
+  tillgängligt i denna variabel.
+
+- `response`: själva response-objektet som vi kan bygga vidare på för att sen returnera till klienten. Alltså, varje endpoint måste skicka tillbaks något response.
+
+Så när ett request hamnar på servern så kommer servern att förska matcha request-url:en mot en av sina egna endpoints. Blir det en matchning, så kommer den endpoint-callbacken att köras.
+
+Låt oss skapa en ny endpoint som svarar mot ett get-request till endpointen "/test". Den ser ut så här:
+
+```js
+app.get("/test", (request, response) => {
+  return response.send("This is a response from the /test endpoint");
+});
+```
+
+Nu har vi två definierade endpoints i vår server som vår server kommer försöka att matcha emot för varje givet request som kommer in.
+
+Men vad betyder egentlgen `response.send()`? Det är en metod som används för att skicka specifika responses till klienten. Oftast i form utav rena texter, alltså strängar i någon form. Precis som vi har gjort ovan.
+
+Vill vi skicka tillbak json-data istället så kan vi absolut göra det, men då behöver vi använda en annan metod istället. Vi testar!
+
+```js
+app.get("/test-with-json", (req, res) => {
+  const testData = {
+    name: "Niklas",
+    isPro: true,
+  };
+
+  return res.json(testData);
+});
+```
+
 [Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
