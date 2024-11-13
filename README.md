@@ -12,9 +12,12 @@
 
 - [Vad är ett API?](#vad-är-ett-api)
 
+  - [Länk till vad ett API är](#länk-om-om-vad-ett-api-är)
+
 - [Kommunikation med HTTP-protokollet ](#kommunikation-med-http-protokollet)
 
   - [Vad är HTTP?](#vad-är-http)
+    - [Länk för mer läsning om HTTP](#länk-för-mer-läsnings-om-http)
   - [HTTP Request](#http-request)
   - [HTTP Response](#http-request)
   - [HTTP Statuskoder](#http-statuskoder)
@@ -92,11 +95,15 @@ Willys tillhandahåller olika typer av data på dessa endpoints:
 
 **Kort och gott** - Genom att använda API:er kan klienter och servrar kommunicera utan att avslöja den bakomliggande implementationen.
 
-<br>
+### Länk om om vad ett API är
+
+[What is an api?](https://www.postman.com/what-is-an-api/)
+
+Några bilder som illsutrerar hur ett API kan visualiseras.
+
 <image src="assets/api2.png" width="500">
 <image src="assets/api1.png" width="700">
-<br>
-<br>
+
 [Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
 
 ## Kommunikation med HTTP-protokollet
@@ -108,6 +115,12 @@ Willys tillhandahåller olika typer av data på dessa endpoints:
 - HTTP fungerar enligt en "request-respons"-modell där klienten skickar ett **request** och en server skickar tillbaka ett **response**.
 
 Denna kommunikation funkar genom att det alltid kommer att vara ett response på varje request. Sen om requestet innehåller det du efterfrågade eller inte är en annan sak. Men du kommer alltid att få ett response tillbaka med någon typ av information.
+
+### Länk för mer läsning om HTTP
+
+Bra länk att kika på: [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
+[Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
 
 ### HTTP Request
 
@@ -126,6 +139,8 @@ Vad består ett HTTP request utav. Givetvis så är det flera olika delar men vi
 
 - **Body ( valfritt )**: Innehåller data som skickas med i requestet. Används i princip uteslutande när vi gör en POST eller PUT.
 
+[Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
+
 ### HTTP Response
 
 När servern tar emot och bearbetar ett request skickar den tillbaka en response till klienten.
@@ -139,6 +154,8 @@ Den består av:
 - **Headers**: Metadata om svaret. Kan innehålla massa olika saker.
 
 - **Body (valfritt)**: Innehållet av datan som retuneras. Kan vara HTML, JSON, strängar, eller om man har otur XML. Finns flera saker som kan returneras också.
+
+[Tillbaks till toppen](#http-protokollet-api-och-hur-man-bygger-en-server)
 
 ### HTTP Statuskoder
 
